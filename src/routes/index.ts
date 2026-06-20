@@ -6,6 +6,15 @@ import partnerRoutes from './partner.routes.js';
 import sliderRoutes from './slider.routes.js';
 import reviewRoutes from './review.routes.js';
 import adminRoutes from './admin.routes.js';
+import teamMemberRoutes from './team-member.routes.js';
+import blogPostRoutes from './blog-post.routes.js';
+import jobRoutes from './job.routes.js';
+import jobApplicationRoutes from './job-application.routes.js';
+import contactRequestRoutes from './contact-request.routes.js';
+import productRoutes from './product.routes.js';
+import portfolioRoutes from './portfolio.routes.js';
+import ticketRoutes from './ticket.routes.js';
+import invoiceRoutes from './invoice.routes.js';
 
 const router = Router();
 
@@ -16,5 +25,14 @@ router.use('/partners', partnerRoutes);
 router.use('/sliders', sliderRoutes);
 router.use('/reviews', reviewRoutes);
 router.use('/admin', adminRoutes);
+router.use('/team-members', teamMemberRoutes);
+router.use('/blog-posts', blogPostRoutes);
+router.use('/jobs', jobRoutes);
+router.use('/job-applications', jobApplicationRoutes);
+router.use('/contact-requests', contactRequestRoutes);
+router.use('/products', productRoutes);
+router.use('/portfolios', portfolioRoutes);
+router.use('/tickets', ticketRoutes);
+router.use('/invoices', invoiceRoutes);
 
 export default router;
