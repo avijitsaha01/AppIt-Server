@@ -13,14 +13,14 @@ async function fix() {
   const { Partner } = await import('./models/partner.model.js');
 
   const updates: { name: string; logo: string }[] = [
-    { name: 'bKash', logo: 'https://logo.clearbit.com/bkash.com' },
-    { name: 'Grameenphone', logo: 'https://logo.clearbit.com/grameenphone.com' },
-    { name: 'Robi', logo: 'https://logo.clearbit.com/robi.com.bd' },
-    { name: 'Pathao', logo: 'https://logo.clearbit.com/pathao.com' },
-    { name: 'Walton', logo: 'https://logo.clearbit.com/waltonbd.com' },
-    { name: 'The Daily Star', logo: 'https://logo.clearbit.com/thedailystar.net' },
-    { name: 'SSL Wireless', logo: 'https://logo.clearbit.com/sslwireless.com' },
-    { name: 'Foodpanda', logo: 'https://logo.clearbit.com/foodpanda.com.bd' },
+    { name: 'bKash', logo: 'https://placehold.co/160x40/1a1a2e/ffffff?text=bKash' },
+    { name: 'Grameenphone', logo: 'https://placehold.co/160x40/1a1a2e/ffffff?text=GP' },
+    { name: 'Robi', logo: 'https://placehold.co/160x40/1a1a2e/ffffff?text=Robi' },
+    { name: 'Pathao', logo: 'https://placehold.co/160x40/1a1a2e/ffffff?text=Pathao' },
+    { name: 'Walton', logo: 'https://placehold.co/160x40/1a1a2e/ffffff?text=Walton' },
+    { name: 'The Daily Star', logo: 'https://placehold.co/160x40/1a1a2e/ffffff?text=TDS' },
+    { name: 'SSL Wireless', logo: 'https://placehold.co/160x40/1a1a2e/ffffff?text=SSL' },
+    { name: 'Foodpanda', logo: 'https://placehold.co/160x40/1a1a2e/ffffff?text=foodpanda' },
   ];
 
   for (const p of updates) {
