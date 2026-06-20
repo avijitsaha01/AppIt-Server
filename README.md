@@ -44,6 +44,7 @@ Backend API for [AppIt](https://itclient.vercel.app) — a full-featured creativ
 - **Request Validation** — Zod schemas for all inputs
 - **Global Error Handling** — Consistent JSON error responses
 - **FormData Normalization** — Array field support for multipart uploads
+- **Auto User Cleanup** — Keeps only the last 20 customers; older users and their data (orders, reviews, tickets, invoices) are auto-deleted after each registration. Optional — delete `cleanup.controller.ts` to disable.
 
 ## API Endpoints
 
@@ -194,6 +195,14 @@ Backend API for [AppIt](https://itclient.vercel.app) — a full-featured creativ
 | POST | `/api/admin/remove-admin` | Admin | Demote admin to customer |
 | GET | `/api/admin/users` | Admin | List all users |
 
+### Cleanup
+
+| Method | Endpoint | Auth | Description |
+|--------|----------|------|-------------|
+| POST | `/api/cleanup/users` | Admin | Delete oldest customers beyond last 20, plus their orders/reviews/tickets/invoices |
+
+> Auto-triggered after each registration. To disable, delete `src/controllers/cleanup.controller.ts` and `src/routes/cleanup.routes.ts`, then remove the import from `routes/index.ts` and the `triggerCleanup()` call from `auth.controller.ts`.
+
 ## Getting Started
 
 ### Prerequisites
@@ -253,7 +262,8 @@ src/
 ├── config/
 │   ├── db.ts                 # Mongoose connection
 │   └── env.ts                # Zod-validated env config
-├── controllers/              # Request handlers (15 controllers)
+├── controllers/              # Request handlers (16 controllers)
+│   ├── cleanup.controller.ts # Auto-cleanup of old customers
 │   ├── admin.controller.ts
 │   ├── auth.controller.ts
 │   ├── blog-post.controller.ts
