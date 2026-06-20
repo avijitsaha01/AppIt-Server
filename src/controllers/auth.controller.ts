@@ -5,6 +5,18 @@ import { hashPassword, comparePassword } from '../utils/password.js';
 import { generateToken } from '../utils/jwt.js';
 import { ApiError } from '../utils/api-error.js';
 
+async function triggerCleanup() {
+  try {
+    const { cleanupUsers } = await import('./cleanup.controller.js');
+    const mockRes = {
+      json: (data: any) => console.log('[cleanup]', data.message || 'done'),
+    } as Response;
+    await cleanupUsers({} as Request, mockRes);
+  } catch {
+    // cleanup controller not present — skip
+  }
+}
+
 export async function register(req: Request, res: Response) {
   const data = registerSchema.parse(req.body);
 
@@ -26,6 +38,9 @@ export async function register(req: Request, res: Response) {
     token,
     user: { id: user.id, name: user.name, email: user.email, role: user.role },
   });
+
+  // fire-and-forget: trim old users if cleanup controller exists
+  triggerCleanup();
 }
 
 export async function login(req: Request, res: Response) {

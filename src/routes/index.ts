@@ -15,6 +15,7 @@ import productRoutes from './product.routes.js';
 import portfolioRoutes from './portfolio.routes.js';
 import ticketRoutes from './ticket.routes.js';
 import invoiceRoutes from './invoice.routes.js';
+import cleanupRoutes from './cleanup.routes.js';
 
 const router = Router();
 
@@ -34,5 +35,6 @@ router.use('/products', productRoutes);
 router.use('/portfolios', portfolioRoutes);
 router.use('/tickets', ticketRoutes);
 router.use('/invoices', invoiceRoutes);
+router.use('/cleanup', cleanupRoutes);
 
 export default router;
